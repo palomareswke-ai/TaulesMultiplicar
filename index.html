@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Taules de Multiplicar</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>🎯 Repàs de les taules de multiplicar 🎯</h1>
+    <div class="controls">
+      <div class="taules">
+        <label>Taules de:</label>
+        <span id="taules-checkboxes"></span>
+      </div>
+      <div>
+        <label for="numOps">Nombre de multiplicacions:</label>
+        <input type="number" id="numOps" min="1" max="100" value="10" />
+      </div>
+      <div class="buttons">
+        <button id="btnPractica" class="btn btn-practica">Practica</button>
+        <button id="btnExamen" class="btn btn-examen">Examen</button>
+        <button id="btnVerifica" class="btn btn-verifica" disabled>Verifica</button>
+      </div>
+      <div id="cronometre" class="cronometre">⏱️ 0s</div>
+    </div>
+    <section id="operacions"></section>
+    <section id="historial-container">
+      <button id="toggleHistorial">👁️ Oculta/Mostra Historial</button>
+      <div id="historial"></div>
+    </section>
+  </main>
+  <script src="js/main.js"></script>
+</body>
+</html>

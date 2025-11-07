@@ -1,0 +1,84 @@
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  text-align: center;
+  background: #f0f8ff;
+  margin: 0;
+  padding: 1em;
+}
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+.controls {
+  margin-bottom: 1em;
+}
+.taules {
+  margin-bottom: 0.5em;
+}
+.buttons {
+  margin: 1em 0;
+}
+.btn {
+  padding: 0.5em 1em;
+  margin: 0.2em;
+  border: 2px solid #000;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+}
+.btn-practica {
+  background: #fff;
+  color: #000;
+}
+.btn-examen {
+  background: gold;
+  color: #000;
+}
+.btn-verifica {
+  background: green;
+  color: #fff;
+}
+.cronometre {
+  font-size: 1.2em;
+  margin-top: 0.5em;
+}
+.operacio {
+  margin: 0.5em 0;
+}
+.operacio input {
+  width: 60px;
+  font-size: 1em;
+}
+.btn-probeta {
+  font-size: 0.8em;
+  padding: 0.2em 0.5em;
+}
+.resultat {
+  display: inline-block;
+  margin-left: 0.5em;
+}
+#historial-container {
+  margin-top: 2em;
+}
+.historial-entry {
+  border: 2px solid #000;
+  border-radius: 8px;
+  margin: 0.5em auto;
+  padding: 0.5em;
+  max-width: 600px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.historial-entry.examen {
+  background: gold;
+}
+.historial-entry.practica {
+  background: #fff;
+}
+.stars {
+  font-size: 1.2em;
+  color: orange;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
