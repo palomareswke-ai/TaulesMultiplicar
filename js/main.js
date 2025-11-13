@@ -40,11 +40,40 @@ function generarOperacions() {
   pararCronometre();
   operacionsContainer.innerHTML = "";
   operacions = [];
+
   const taules = Array.from(taulesContainer.querySelectorAll("input:checked")).map(cb => parseInt(cb.value));
-  const numOps = parseInt(document.getElementById("numOps").value);
-  for (let i = 0; i < numOps; i++) {
+  let numOps = parseInt(document.getElementById("numOps").value);
+
+  // Generar todas las combinaciones posibles sin repetir
+  let combinacions = [];
+
+  // Añadir una sola multiplicación por 1 (si hay tablas seleccionadas)
+  if (taules.length > 0) {
     const a = taules[Math.floor(Math.random() * taules.length)];
-    const b = Math.floor(Math.random() * 10) + 1;
+    combinacions.push([a, 1]);
+  }
+
+  // Añadir el resto (b = 2..10)
+  taules.forEach(a => {
+    for (let b = 2; b <= 10; b++) {
+      combinacions.push([a, b]);
+    }
+  });
+
+  // Mezclar combinaciones
+  combinacions = combinacions.sort(() => Math.random() - 0.5);
+
+  // Ajustar número de operaciones si excede el máximo posible
+  if (numOps > combinacions.length) {
+    numOps = combinacions.length;
+  }
+
+  // Tomar las primeras numOps combinaciones
+  const seleccionadas = combinacions.slice(0, numOps);
+
+  // Crear las operaciones
+  seleccionadas.forEach(([a, b]) => {
+  
     const div = document.createElement("div");
     div.className = "operacio";
 	
@@ -58,9 +87,11 @@ function generarOperacions() {
 		<button class="btn btn-probeta">🧪</button>
 		<span class="resultat"></span>`;
 	}
+
     operacionsContainer.appendChild(div);
     operacions.push({ a, b, resposta: a * b, input: div.querySelector("input"), resultat: div.querySelector(".resultat"), verificada: false });
-  }
+  });
+
   btnVerifica.disabled = true;
   cronometreDisplay.textContent = "⏱️ 0s";
   if (mode === "examen" || mode === "practica") iniciarCronometre();
