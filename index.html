@@ -32,6 +32,12 @@
       <div id="historial"></div>
     </section>
   </main>
-  <script src="js/main.js"></script>
+  <!-- Script con cache-busting dinámico -->
+  <script>
+    const script = document.createElement('script');
+    // Añade un parámetro con la fecha/hora para evitar caché
+    script.src = 'js/main.js?v=' + new Date().getTime();
+    document.body.appendChild(script);
+  </script>
 </body>
 </html>
